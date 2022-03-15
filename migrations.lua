@@ -25,5 +25,8 @@ return {
 
     schema.add_column("articles", "author_id", types.foreign_key)
     db.query("ALTER TABLE articles ADD CONSTRAINT author_fk FOREIGN KEY (author_id) REFERENCES authors (id)")
+  end;
+  [3] = function ()
+    db.insert("authors", {name = "luna_user", email = "luna_user@luna_blog", password = "luna"})
   end
 }
