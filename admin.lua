@@ -1,6 +1,6 @@
 local Authors = require("models.Authors")
 local Articles = require("models.Articles")
-local crypto = require("crypto")
+local md5 = require("md5")
 
 return function(app)
 
@@ -29,7 +29,7 @@ return function(app)
   app:get("/admin/:tab", home)
 
   app:post("/admin/login", function(self)
-    local password = crypto.digest("md5", self.params.password)
+    local password = md5.sumhexa(self.params.password)
     local email = self.params.email
 
     local author = Authors:find({ email = email, password = password})
