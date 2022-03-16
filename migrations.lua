@@ -58,5 +58,8 @@ return {
       { "article_id", types.foreign_key },
       { "tag_id", types.foreign_key }
     })
+  end;
+  [8] = function ()
+    db.insert("categories", {name = "Uncategorized", slug = "uncategorized"})
   end
 }
