@@ -6,34 +6,34 @@
     <link rel="stylesheet" href="/assets/admin/admin.css"/>
   </head>
   <body>
-    <header class="container">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">Luna Admin</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
-            </li>
-          </ul>
-          <div class="nav-item">
-            <a class="nav-link" href="/"><span class="navbar-text">Luna Front-End</span></a>
-          </div>
-          <div class="nav-item">
-            <a class="nav-link" href="/admin/logout"><span class="navbar-text">Logout</span></a>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Luna Admin</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+            </ul>
+            <div class="nav-item">
+              <a class="nav-link" href="/"><span class="navbar-text">Luna Front-End</span></a>
+            </div>
+            <div class="nav-item">
+              <a class="nav-link" href="/admin/logout"><span class="navbar-text">Logout</span></a>
+            </div>
           </div>
         </div>
+      </nav>
+    </header>
+    <main>
+      <div class="container mt-4 mb-4">
+        <% content_for("inner") %>
       </div>
-    </nav>
-  </header>
-  <main class="container">
-    <div class="container">
-      <% content_for("inner") %>
-    </div>
-  </main>
+    </main>
   <footer></footer>
-  </body>
+</body>
 </html>

@@ -1,10 +1,10 @@
-<div class="container">
-<div>
+<div class="mt5">
   <a href="/admin/article/new">
     <button class="btn btn-primary">New article</button>
   </a>
 </div>
-
+</div>
+<div class="container">
 <ul class="nav nav-tabs admin-top-tabs">
   <li role="presentation"<% if tab == "articles" then %> class="nav-link active" <% else %>  class="nav-link" <% end %>><a href="/admin/articles">Articles</a></li>
   <li role="presentation"<% if tab == "categories" then %> class="nav-link active" <% else %>  class="nav-link" <% end %>><a href="/admin/categories">Categories</a></li>
@@ -49,4 +49,3 @@
   </thead>
 </table>
 <% end %>
-</div>
