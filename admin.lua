@@ -1,6 +1,13 @@
 local Authors = require("models.Authors")
 local Articles = require("models.Articles")
+-- local Categories = require("models.Categories")
+-- local Tags = require("models.Tags")
 local md5 = require("md5")
+
+local util = require("lapis.util")
+local slugify = util.slugify
+
+local db = require("lapis.db")
 
 return function(app)
 
@@ -76,7 +83,11 @@ return function(app)
       article = Articles:create({
         title = self.params.title;
         content = self.params.content;
-        author_id = self.session.current_author.id 
+        date = db.format_date();
+        author_id = self.session.current_author.id;
+        slug = slugify(self.params.title);
+        published = true;
+        category_id = 1;
       })
     else
       article = Articles:find(self.params.article)
