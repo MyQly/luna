@@ -1,3 +1,4 @@
+<div class="container">
 <div>
   <a href="/admin/article/new">
     <button class="btn btn-primary">New article</button>
@@ -5,8 +6,10 @@
 </div>
 
 <ul class="nav nav-tabs admin-top-tabs">
-  <li role="presentation" <% if tab == "articles" then %> class="active" <% end %>><a href="/admin/articles">Articles</a></li>
-  <li role="presentation" <% if tab == "authors" then %> class="active" <% end %>><a href="/admin/authors">Authors</a></li>
+  <li role="presentation"<% if tab == "articles" then %> class="nav-link active" <% else %>  class="nav-link" <% end %>><a href="/admin/articles">Articles</a></li>
+  <li role="presentation"<% if tab == "categories" then %> class="nav-link active" <% else %>  class="nav-link" <% end %>><a href="/admin/categories">Categories</a></li>
+  <li role="presentation"<% if tab == "tags" then %> class="nav-link active" <% else %>  class="nav-link" <% end %>><a href="/admin/tags">Tags</a></li>
+  <li role="presentation"<% if tab == "authors" then %> class="nav-link active" <% else %>  class="nav-link" <% end %>><a href="/admin/authors">Authors</a></li>
 </ul>
 
 <% if tab == "articles" then %>
@@ -46,3 +49,4 @@
   </thead>
 </table>
 <% end %>
+</div>
