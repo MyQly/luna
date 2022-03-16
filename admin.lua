@@ -1,11 +1,13 @@
 local Authors = require("models.Authors")
 local Articles = require("models.Articles")
+local Categories = require("models.Categories")
 -- local Categories = require("models.Categories")
 -- local Tags = require("models.Tags")
 local md5 = require("md5")
 
 local util = require("lapis.util")
 local slugify = util.slugify
+local trim = util.trim
 
 local db = require("lapis.db")
 
@@ -69,6 +71,8 @@ return function(app)
       self.article = Articles:find(self.params.article)
     end
 
+    self.categories = Categories:select({ fields = "name" })
+
     return { render = "admin.article", layout = "admin.layout" }
   end)
 
@@ -78,6 +82,7 @@ return function(app)
     end
 
     local article
+    local category_id = Categories:find({name = trim(self.params.category)}).id
 
     if self.params.article == "new" then
       article = Articles:create({
@@ -87,7 +92,7 @@ return function(app)
         author_id = self.session.current_author.id;
         slug = slugify(self.params.title);
         published = true;
-        category_id = 1;
+        category_id = category_id;
       })
     else
       article = Articles:find(self.params.article)

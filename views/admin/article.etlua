@@ -8,6 +8,20 @@
     <textarea name="content" class="form-control article-content-edit"><%= article.content %></textarea>
   </div>
   <div class="form-group">
+    <label for="exampleDataList" class="form-label">Datalist example</label>
+    <input class="form-control" list="datalistOptions" name="category" id="category" placeholder="Type to search...">
+    <datalist id="datalistOptions">
+      <% for k,category in pairs(categories) do %>
+        <option value="
+        <%= category.name %>
+        ">
+      <% end %>
+    </datalist>
+  </option>
+  <div class="form-group">
+    <lable> Slug </lable>
+  </div>
+  <div class="form-group">
     <button type="submit" class="btn btn-primary">Save</button>
     <a href="/admin/articles">
       <button type="button" class="btn btn-default">Back</button>
