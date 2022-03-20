@@ -1,30 +1,96 @@
-<form action="/admin/article/<%= article.id %>" method="post">
+<a href="/admin/articles">
+  <button type="button" class="btn btn-primary">Back To Article List</button>
+</a>
+
+<form class="mt-3" action="/admin/article/<%= article.id %>" method="post">
   <div class="form-group">
-    <label> Title </label>
-    <input class="form-control" type="text" name="title" value="<%= article.title %>">
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="basic-addon1">Title</span>
+      <input type="text" class="form-control" name="title" value="<%= article.title %>" aria-label="Title" aria-describedby="basic-addon1">
+    </div>
   </div>
   <div class="form-group">
-    <label> Content </label>
-    <textarea name="content" class="form-control article-content-edit"><%= article.content %></textarea>
+        <div class="input-group mb-3">
+
+
+    <textarea id="trumbowyg" name="content"></textarea>
+
+  </div>
   </div>
   <div class="form-group">
-    <label for="exampleDataList" class="form-label">Datalist example</label>
-    <input class="form-control" list="datalistOptions" name="category" id="category" placeholder="Type to search...">
-    <datalist id="datalistOptions">
-      <% for k,category in pairs(categories) do %>
-        <option value="
-        <%= category.name %>
-        ">
+    <div class="input-group mt-3 mb-3">
+      <label class="input-group-text" for="inputGroupSelect01">Category</label>
+      <!--<select class="form-select" name="category" id="category">
+        <% for k,category in pairs(categories) do %>
+        <option <% if category.id == article.category_id then %>selected<%end%> value="
+          <%= category.id %>
+          "> <%= category.name %>
+          <% end %>
+        </option>
+      </select>-->
+      <textarea name='category' class="form-control" placeholder=''>
+        <% if article.id ~= "new" then %>
+          <%= article:get_category().name %>
+        <% else %>
+          [{"value":"Uncategorized"}]
+        <% end %>
+      </textarea>
+    </div>
+  </div>
+  <div class="input-group">
+    <span class="input-group-text" id="basic-addon1">Tags</span>
+    <textarea name='tags' class="form-control" placeholder=''>
+      <% if article.id ~= "new" then %>
+        <% tagList = '' %>
+        <% for k,tag in pairs(article_tags) do %>
+          <% tagList = tagList..'{"value":"'..tag.name..'"},' %>
+        <% end %>
+          <% tagList = string.sub(tagList, 1, -2) %>
+          <%= '['..tagList..']' %>
       <% end %>
-    </datalist>
-  </option>
+    </textarea>
+  </div>
+
   <div class="form-group">
-    <lable> Slug </lable>
+    <div class="input-group flex-nowrap mt-3">
+      <span class="input-group-text" id="addon-wrapping">Slug</span>
+      <input type="text" class="form-control" name="slug" placeholder="" aria-label="Slug" aria-describedby="addon-wrapping" value="<%= article.slug or ''%>">
+    </div>
+
   </div>
   <div class="form-group">
+    <div class="form-check form-switch mt-3">
+      <input class="form-check-input" type="checkbox" name="publish" role="switch" id="flexSwitchCheckChecked" <% if article.published then %>checked<%end%>>
+      <label class="form-check-label" for="flexSwitchCheckChecked">Publish Post?</label>
+    </div>
+  </div>
+  <div class="mt-3 form-group">
     <button type="submit" class="btn btn-primary">Save</button>
-    <a href="/admin/articles">
-      <button type="button" class="btn btn-default">Back</button>
-    </a>
   </div>
 </form>
+<script>
+<%
+  -- Probably not perfect. Cleans up CRLF to allow raw HTML code to be entered better.
+  local articleContent = string.gsub(article.content,"\r\n","\\r\\n")
+  articleContent = string.gsub(articleContent,"'","\\'")
+%>
+var articleContent = '<%- articleContent %>';
+
+$('#trumbowyg').trumbowyg({
+  semantic: false,
+  plugins: {
+        resizimg: {
+            minSize: 64,
+            step: 16,
+        }
+    },
+  tagClasses: {
+        h1: 'h1', // Bootstrap example
+        blockquote: 'bg-grey-100 rounded-xl', // Tailwind CSS example
+        image: 'img-fluid'
+    }
+});
+$('#trumbowyg').trumbowyg('html', articleContent);
+
+
+</script>
