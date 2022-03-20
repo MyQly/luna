@@ -1,0 +1,59 @@
+<div class="ui basic inverted teal padded segment">
+  <header>
+    <div class="ui fluid stackable borderless menu">
+      <div class="left menu">
+        <div class="ui left item">
+          <img class="ui mini image" src="/static/luna-logo.png">
+        </div>
+        <div class="ui left item">
+          <div class="ui icon teal top left pointing dropdown button">
+            <i class="plus icon"></i>
+            <div class="menu">
+              <div class="item">Article</div>
+              <div class="item">Category</div>
+              <div class="item">Tag</div>
+            </div>
+          </div>
+        </div>
+        <div class="ui left item">
+          <a href="<%= url_for('dashboard') %>"><button class="ui teal right labeled icon button">Dashboard <i class="columns icon"></i></button></a>
+        </div>
+        <div class="ui left item">
+          <div class="ui right labeled icon teal top middle pointing dropdown button">
+            Manage <i class="pen square icon"></i>
+            <div class="menu">
+              <div class="item">Articles</div>
+              <div class="item">Categories</div>
+              <div class="item">Tags</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="right menu">
+        <div class="ui item">
+          <div class="ui icon teal top right pointing dropdown button">
+            <i class="cog icon"></i>
+            <div class="menu">
+              <div class="item">Settings</div>
+              <div class="item">Theme</div>
+              <div class="item">Depot</div>
+              <div class="item">Users</div>
+            </div>
+          </div>
+        </div>
+        <a href="<%= url_for('logout') %>" class="ui item">
+          Logout
+        </a>
+      </div>
+    </div>
+    <div class="ui container">
+        <div class="ui item">
+          <div class="ui fluid icon input">
+            <input class="prompt" type="text" placeholder="Search LUNA...">
+            <i class="search icon"></i>
+          </div>
+          <div class="results"></div>
+        </div>
+    </div>
+  </header>
+</div>
