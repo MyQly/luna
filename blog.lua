@@ -2,7 +2,7 @@ local Articles = require("models.Articles")
 
 return function(app)
   app:get("/", function(self)
-    self.articles = Articles:select("ORDER BY date desc LIMIT 10") 
+    self.articles = Articles:select("WHERE published = 'true' ORDER BY date desc LIMIT 10") 
     return { render = "index" }
   end)
   
