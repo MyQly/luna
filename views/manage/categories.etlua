@@ -1,0 +1,14 @@
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th> Name </th>
+        <th> Post Count </th>
+      </tr>
+      <% for i, category in pairs(categories) do %>
+      <tr>
+        <td> <%= category.name %> </td>
+        <td> <%= Articles:count("category_id ="..category.id) %> </td>
+      </tr>
+      <% end %>
+    </thead>
+  </table>
