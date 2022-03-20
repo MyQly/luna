@@ -1,0 +1,9 @@
+    <!-- Trumbowyg -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.25.1/ui/trumbowyg.min.css" integrity="sha512-nwpMzLYxfwDnu68Rt9PqLqgVtHkIJxEPrlu3PfTfLQKVgBAlTKDmim1JvCGNyNRtyvCx1nNIVBfYm8UZotWd4Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.25.1/trumbowyg.min.js" integrity="sha512-t4CFex/T+ioTF5y0QZnCY9r5fkE8bMf9uoNH2HNSwsiTaMQMO0C9KbKPMvwWNdVaEO51nDL3pAzg4ydjWXaqbg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.25.1/plugins/base64/trumbowyg.base64.min.js" integrity="sha512-L1afpNgAjxlMYDMjEnvHo2g71G9rlmur1XnU1UNs2gsaZiVc+YxyxiQn7+b+cT0inAMcBQerGLmJMiODNGofLA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- Import dependency for Resizimg (tested with version 0.35). For a production setup, follow install instructions here: https://github.com/RickStrahl/jquery-resizable -->
+    <script src="//rawcdn.githack.com/RickStrahl/jquery-resizable/0.35/dist/jquery-resizable.min.js"></script>
+    <!-- Import Trumbowyg plugins... -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.25.1/plugins/resizimg/trumbowyg.resizimg.min.js" integrity="sha512-ZFWCpQ44IAcwGKAV1TSNslN5jZBbLOanbtKXGpi/EDwW7HGAYbueYKe8JzwxkZ048btwFX+18O/d3TrRx8+jzA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>

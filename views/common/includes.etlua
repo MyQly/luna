@@ -1,0 +1,3 @@
+<% render("views.common.jquery") %>
+<% render("views.common.fomantic-ui") %>
+<% render("views.common.trumbowyg") %>
