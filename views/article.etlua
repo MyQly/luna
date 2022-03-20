@@ -1,7 +1,7 @@
 <div class="article">
   <h1><%= article.title %></h1>
   <div>
-    <%= article.content %>
+    <%- article.content %>
   </div>
   <div>
     Written by: <%= article:get_author().name %>
