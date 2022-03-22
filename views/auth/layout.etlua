@@ -1,0 +1,11 @@
+<html>
+  <head>
+    <title>Admin</title>
+    <% render("views.common.includes") %>
+    <% render("views.auth.includes") %>
+  </head>
+  <body>
+    <% content_for("inner") %>
+  </body>
+</html>
+

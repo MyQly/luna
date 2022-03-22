@@ -1,5 +1,6 @@
-local blog = require("blog")
-local admin = require("admin")
+local blog = require("apps/blog/blog")
+local auth = require("apps/auth/auth")
+local admin = require("apps/admin/admin")
 
 local lapis = require("lapis")
 
@@ -7,10 +8,13 @@ local app = lapis.Application()
 app:enable("etlua")
 app.layout = require "views.layout"
 
--- Init blog routes
+-- Init Blog routes
 blog(app)
-
--- Initi admin routes
+-- Init Admin routes
 admin(app)
+-- Init Auth Routes
+auth(app)
+
+
 
 return app
