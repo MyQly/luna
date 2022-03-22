@@ -1,0 +1,15 @@
+<div class="ui segment">
+<div class="ui centered header">Manage Articles</div>
+<div class="ui divider"></div>
+<div class="ui celled list">
+    <% for i, article in pairs(articles) do %>
+  <div class="item">
+    <i class="big teal square pencil icon"></i>  
+    <div class="content">
+      <div class="header"><%= article.title %></div>
+      <%= article:get_author().name %> | <%= article.date %>
+    </div>
+  </div>
+    <% end %>
+</div>
+</div>

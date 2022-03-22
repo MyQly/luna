@@ -1,0 +1,14 @@
+<div class="ui segment">
+<div class="ui centered header">Manage Authors</div>
+<div class="ui celled list">
+    <% for i, author in pairs(authors) do %>
+  <div class="item">
+    <i class="big teal square pencil icon"></i>  
+    <div class="content">
+      <div class="header"><%= author.name %></div>
+      <%= author.email %>
+    </div>
+  </div>
+    <% end %>
+</div>
+</div>

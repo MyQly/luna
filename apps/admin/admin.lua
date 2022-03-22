@@ -11,65 +11,59 @@ local slugify = util.slugify
 local trim = util.trim
 
 local db = require("lapis.db")
+local respond_to = require("lapis.application").respond_to
+
+local app_Articles = require("apps.admin.articles")
 
 return function(app)
 
-  local home = function(self)
-    if not self.session.current_author then
-      self.errors = self.params.error == "true"
-      return { render = "admin.login", layout = "admin.layout" }
-    else
-      self.current_author = self.session.current_author
+  app:get("/admin/:tab", function(self)
+    return {redirect_to = self:url_for("dashboard")}
+  end)
 
+  app:match("manage_app", "/admin/manage/:tab", function(self)
       local tab = self.params.tab or "articles"
       self.tab = tab
 
       self.Articles = Articles
+      self.Categories = Categories
+      self.Tags = Tags
 
       if tab == "articles" then
         self.articles = Articles:select()
+        return { render = "admin.manage.articles", layout = "admin.layout" }
       elseif tab == "categories" then
         self.categories = Categories:select()
+        return { render = "admin.manage.categories", layout = "admin.layout" }
       elseif tab == "tags" then
         self.tags = Tags:select()
+        return { render = "admin.manage.tags", layout = "admin.layout" }
       elseif tab == "authors" then
         self.authors = Authors:select()
+        return { render = "admin.manage.authors", layout = "admin.layout" }
       end
 
-      return { render = "admin.home", layout = "admin.layout" }
-    end
-  end
-
-  app:get("dashboard", "/dashboard", home)
-
-  app:get("/admin/:tab", home)
-
-  app:get("login", "/login", function(self)
-    return { render = "admin.login", layout = "admin.layout" }
+      return { render = "notfound", layout = "admin.layout" }
   end)
 
-  app:post("login", "/login", function(self)
-    local password = md5.sumhexa(self.params.password)
-    local email = self.params.email
-
-    local author = Authors:find({ email = email, password = password})
-
-    if not author then
-      return { redirect_to = "/login?error=true" }
-    else
-      self.session.current_author = { id = author.id, name = author.name, email = author.email }
-      return { redirect_to = self:url_for("dashboard") }
+  app:match("dashboard", "/admin/dashboard", respond_to({
+    before = function(self)
+      if not self.session.current_author then
+        self.errors = self.params.error == "true"
+        self:write({ redirect_to = self:url_for("login") })
+      else
+        self.current_author = self.session.current_author
+      end        
+    end,
+    GET = function(self)
+      return { render = "admin.dashboard", layout = "admin.layout" }
     end
-  end)
+  }))
 
   app:get("/admin", function(self)
-    return {redirect_to = "/dashboard"}
+    return {redirect_to = self:url_for("dashboard")}
   end)
 
-  app:get("logout", "/logout", function(self)
-    self.session.current_author = nil
-    return { redirect_to = "/" }
-  end)
 
   app:get("/admin/article/:article", function(self)
     if not self.session.current_author then
