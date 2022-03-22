@@ -1,6 +1,5 @@
-<div class="ui basic inverted teal padded segment">
-  <header>
-    <div class="ui fluid stackable borderless menu">
+<div class="ui basic raised inverted teal padded segment">
+    <div class="ui stackable borderless container menu">
       <div class="left menu">
         <div class="ui left item">
           <img class="ui mini image" src="/static/luna-logo.png">
@@ -22,7 +21,7 @@
           <div class="ui right labeled icon teal top middle pointing dropdown button">
             Manage <i class="pen square icon"></i>
             <div class="menu">
-              <div class="item">Articles</div>
+              <a href="<%= url_for('manage_app')..'articles' %>"><div class="item">Articles</div></a>
               <div class="item">Categories</div>
               <div class="item">Tags</div>
             </div>
@@ -48,12 +47,11 @@
     </div>
     <div class="ui container">
         <div class="ui item">
-          <div class="ui fluid icon input">
+          <div class="ui fluid icon disabled input">
             <input class="prompt" type="text" placeholder="Search LUNA...">
             <i class="search icon"></i>
           </div>
           <div class="results"></div>
         </div>
     </div>
-  </header>
 </div>
