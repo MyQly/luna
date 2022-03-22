@@ -23,12 +23,12 @@
     <li role="presentation"<% if tab == "authors" then %> class="nav-link active" <% else %>  class="nav-link" <% end %>><a href="/admin/authors">Authors</a></li>
   </ul>
   <% if tab == "articles" then %>
-    <% render("views.manage.articles") %>
+    <% render("views.admin.manage.articles") %>
   <% end %>
   <% if tab == "categories" then %>
-    <% render("views.manage.categories") %>
+    <% render("views.admin.manage.categories") %>
   <% end %>
   <% if tab == "authors" then %>
-    <% render("views.manage.users") %>
+    <% render("views.admin.manage.users") %>
   <% end %>
 </div>
