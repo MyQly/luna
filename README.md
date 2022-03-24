@@ -1,4 +1,4 @@
-# Luna Blog
+# luna
 
 A blog engine written in [Lua](https://www.lua.org/) and powered by [Lapis](https://leafo.net/lapis/), [Fomantic-UI](https://fomantic-ui.com) & [Trumbowyg](https://alex-d.github.io/Trumbowyg/). 
 
