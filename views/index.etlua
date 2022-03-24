@@ -1,13 +1,52 @@
-<% for i, article in pairs(articles) do %>
-<div>
-  <h2>
-    <a href="/article/<%= article.id %>">
-      <%= article.title %>
-    </a>
-  </h2>  
-  <!--<p><%- article.content %></h2>-->
-  <div class="written-by">
-    By: <%= article:get_author().name %>
+<div class="ui four cards">
+    <div class="card">
+    <div class="ui image">
+      <img src="https://fomantic-ui.com/images/wireframe/image.png">
+    </div>
+    <div class="content">
+      Featured #1
+    </div>
   </div>
-</div>
-<% end %>
+  <div class="card">
+    <div class="ui image">
+      <img src="https://fomantic-ui.com/images/wireframe/image.png">
+    </div>
+    <div class="content">
+      Featured #2
+    </div>
+  </div>
+    <div class="card">
+    <div class="ui image">
+      <img src="https://fomantic-ui.com/images/wireframe/image.png">
+    </div>
+    <div class="content">
+      Featured #3
+    </div>
+  </div>
+    <div class="card">
+    <div class="ui image">
+      <img src="https://fomantic-ui.com/images/wireframe/image.png">
+    </div>
+    <div class="content">
+      <span class="header">Featured #4</span>
+    </div>
+  </div>
+    </div>
+    <div class="ui inverted divider"></div>
+    <div class="ui segment">
+      <div class="ui middle aligned very relaxed divided list">
+        <% for i, article in pairs(articles) do %>
+        <div class="item">
+          <div class="content">
+            <a class="ui header" href="/article/<%= article.id %>">
+              <%= article.title %>
+            </a>
+            <!--<p><%- article.content %></h2>-->
+            <!--<div class="written-by">
+              By: <%= article:get_author().name %>
+            </div>-->
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>

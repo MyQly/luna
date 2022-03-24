@@ -1,17 +1,16 @@
-<div class="ui container">
-	<div class="ui three teal cards">
+	<div class="ui three black cards">
 		<div class="card">
 			<div class="content">
-				<div class="ui teal middle aligned two column grid">
+				<div class="ui black middle aligned two column grid">
 					<div class="ui row">
 					<div class="ui column">
 						<div class="ui large header">Articles</div>
 					</div>
 					<div class="ui right aligned column">
-						<div class="ui right teal icon button">
+						<div class="ui right black icon button">
 							<i class="plus icon"></i>
 						</div>
-						<div class="ui right teal icon button">
+						<div class="ui right black icon button">
 							<i class="square pencil icon"></i>
 						</div>
 					</div>
@@ -38,10 +37,10 @@
 		<div class="card">
 			<div class="content">
 				<div class="header">Categories
-					<div class="ui right floated teal icon button">
+					<div class="ui right floated black icon button">
 						<i class="plus icon"></i>
 					</div>
-					<div class="ui right floated teal icon button">
+					<div class="ui right floated black icon button">
 						<i class="square pencil icon"></i>
 					</div>
 				</div>
@@ -85,10 +84,10 @@
 		</div>
 		<div class="card">
 			<div class="content">
-				<div class="header">Tags					<div class="ui right floated teal icon button">
+				<div class="header">Tags					<div class="ui right floated black icon button">
 					<i class="plus icon"></i>
 				</div>
-				<div class="ui right floated teal icon button">
+				<div class="ui right floated black icon button">
 					<i class="square pencil icon"></i>
 				</div></div>
 				<div class="meta">
@@ -109,4 +108,3 @@
 			</div>
 		</div>
 	</div>
-</div>

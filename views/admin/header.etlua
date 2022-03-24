@@ -1,11 +1,11 @@
-<div class="ui basic raised inverted teal padded segment">
-    <div class="ui stackable borderless container menu">
+<div class="ui basic raised inverted padded segment">
+    <div class="ui stackable inverted  borderless container menu">
       <div class="left menu">
         <div class="ui left item">
           <img class="ui mini image" src="/static/luna-logo.png">
         </div>
         <div class="ui left item">
-          <div class="ui icon teal top left pointing dropdown button">
+          <div class="ui icon black top left pointing dropdown button" data-tooltip="Add users to your feed" data-position="right center">
             <i class="plus icon"></i>
             <div class="menu">
               <div class="item">Article</div>
@@ -15,22 +15,22 @@
           </div>
         </div>
         <div class="ui left item">
-          <a href="<%= url_for('dashboard') %>"><button class="ui teal right labeled icon button">Dashboard <i class="columns icon"></i></button></a>
+          <a href="<%= url_for('dashboard') %>"><button class="ui grey right labeled icon button">Dashboard <i class="columns icon"></i></button></a>
         </div>
         <div class="ui left item">
-          <div class="ui right labeled icon teal top middle pointing dropdown button">
+          <div class="ui right labeled icon grey top middle pointing dropdown button">
             Manage <i class="pen square icon"></i>
             <div class="menu">
-              <a href="<%= url_for('manage_app')..'articles' %>"><div class="item">Articles</div></a>
-              <div class="item">Categories</div>
-              <div class="item">Tags</div>
+              <a class="item" href="<%= url_for('manage_app')..'articles' %>">Articles</a>
+              <a class="item" href="<%= url_for('manage_app')..'categories' %>">Categories</a>
+              <a class="item" href="<%= url_for('manage_app')..'tags' %>">Tags</a>
             </div>
           </div>
         </div>
       </div>
       <div class="right menu">
         <div class="ui item">
-          <div class="ui icon teal top right pointing dropdown button">
+          <div class="ui icon black top right pointing dropdown button">
             <i class="cog icon"></i>
             <div class="menu">
               <div class="item">Settings</div>
@@ -45,7 +45,7 @@
         </a>
       </div>
     </div>
-    <div class="ui container">
+    <div class="ui teal container">
         <div class="ui item">
           <div class="ui fluid icon disabled input">
             <input class="prompt" type="text" placeholder="Search LUNA...">

@@ -1,9 +1,9 @@
 <div class="ui middle aligned center aligned grid">
   <div class="column">
-    <h2 class="ui teal image header">
+    <h2 class="ui image header">
       <!--img src="assets/images/logo.png" class="image"-->
       <div class="content">
-        Log-in to your account
+        <span class="ui inverted header">Log-in to your account</span>
       </div>
     </h2>
     <form class="ui large form" method="POST" action="<%= '/login' %>">
@@ -23,7 +23,7 @@
             <input type="password" name="password" placeholder="Password">
           </div>
         </div>
-        <div class="ui fluid large teal submit button">Login</div>
+        <div class="ui fluid large black submit button">Login</div>
       </div>
 
       <div class="ui error message"></div>

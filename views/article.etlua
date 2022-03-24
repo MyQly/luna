@@ -1,9 +1,11 @@
-<div class="article">
-  <h1><%= article.title %></h1>
-  <div>
-    <%- article.content %>
-  </div>
-  <div>
-    Written by: <%= article:get_author().name %>
+<div class="ui segment">
+  <div class="article">
+    <h1><%= article.title %></h1>
+    <div>
+      <%- article.content %>
+    </div>
+    <div>
+      Written by: <%= article:get_author().name %>
+    </div>
   </div>
 </div>
