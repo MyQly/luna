@@ -61,5 +61,13 @@ return {
   end;
   [8] = function ()
     db.insert("categories", {name = "Uncategorized", slug = "uncategorized"})
+  end;
+  [9] = function ()
+    schema.create_table("settings", {
+      { "name", types.text },
+      { "value", types.text },
+
+      "PRIMARY KEY (name)"
+    })
   end
 }

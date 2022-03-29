@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= page_title or "Luna Blog" %></title>
+    <title><%= title %></title>
     <% render("views.common.includes") %>
     <style>
     #nav {
@@ -16,6 +16,7 @@
   body {
     background-color: #2b2c2d;
   }
+
   .ui.menu .item img.logo {
     margin-right: 1.5em;
   }
@@ -42,6 +43,16 @@
   flex: 1;
 }
 </style>
+
+<style>
+  #article:hover, #social:hover {
+    color: #FF665E !important;
+  }
+
+  #article-image {
+    max-height: 400px;
+  }
+</style>
   </head>
   <body class="site">
     <div class="ui basic inverted segment">
@@ -53,9 +64,9 @@
           <div class="item">Tags</div>
           <div class="item">Pebble</div>
           <div class="right menu">
-            <div class="item"><a href="https://myqly.itch.io/" target="_blank"><i class="large itch io icon"></i></a></div>
-            <div class="item"><a href="https://github.com/myqly" target="_blank"><i class="large github icon"></i></a></div>
-            <div class="item"><a href="https://twitter.com/myqly" target="_blank"><i class="large twitter icon"></i></a></div>
+            <div class="item"><a id="social" href="https://<%= itchio %>.itch.io/" target="_blank"><i class="large itch io icon"></i></a></div>
+            <div class="item"><a id="social" href="https://github.com/<%= github %>" target="_blank"><i class="large github icon"></i></a></div>
+            <div class="item"><a id="social" href="https://twitter.com/<%= twitter %>" target="_blank"><i class="large twitter icon"></i></a></div>
           </div>
         </div>
       </div>
