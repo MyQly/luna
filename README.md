@@ -6,6 +6,8 @@ A blog engine written in [Lua](https://www.lua.org/) and powered by [Lapis](http
 
 Lapis, OpenResty and PostgreSQL are assumed to be installed.
 
+1. PostgreSQL - 
+
 ### Create Database
 
 1. Login as postgres. (su postgres)
@@ -19,8 +21,9 @@ Lapis, OpenResty and PostgreSQL are assumed to be installed.
 ### Application Setup
 1. Review migrations.lua and update the username/password combination.
 2. Run lapis migrate.
-3. Install md5.
-   * sudo luarocks install md5
+3. Install md5 & luafilesystem.
+   * sudo luarocks install md5 
+   * sudo luarocks install luafilesystem
 4. Start luna_blog.
    * sudo lapis server
 
