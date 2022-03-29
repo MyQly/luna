@@ -74,12 +74,4 @@
     </div>
   </div>
   </body>
-  <script>
-    $('.ui.dropdown')
-      .dropdown()
-    ;
-    $('.ui.accordion')
-      .accordion()
-    ;
-  </script>
 </html>

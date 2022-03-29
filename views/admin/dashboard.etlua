@@ -7,9 +7,9 @@
 						<div class="ui large header">Articles</div>
 					</div>
 					<div class="ui right aligned column">
-						<div class="ui right black icon button">
+						<a href="<%= url_for('get_article')..'new' %>"><div class="ui right black icon button">
 							<i class="plus icon"></i>
-						</div>
+						</div></a>
 						<div class="ui right black icon button">
 							<i class="square pencil icon"></i>
 						</div>
@@ -36,15 +36,25 @@
 		</div>
 		<div class="card">
 			<div class="content">
-				<div class="header">Categories
-					<div class="ui right floated black icon button">
-						<i class="plus icon"></i>
+				<div class="ui black middle aligned two column grid">
+					<div class="ui row">
+					<div class="ui column">
+						<div class="ui large header">Categories</div>
 					</div>
-					<div class="ui right floated black icon button">
-						<i class="square pencil icon"></i>
+					<div class="ui right aligned column">
+						<div class="ui right black icon category button">
+							<i class="plus icon"></i>
+						</div>
+						<div class="ui right black icon button">
+							<i class="square pencil icon"></i>
+						</div>
 					</div>
-				</div>
-				<div class="description">
+				</div></div>
+				<div class="ui divider"></div>
+				
+				<div class="meta">
+					<a>Recent Articles</a>
+				</div>				<div class="description">
 					Molly is a personal assistant living in Paris.
 				</div>
 			</div>
@@ -84,16 +94,25 @@
 		</div>
 		<div class="card">
 			<div class="content">
-				<div class="header">Tags					<div class="ui right floated black icon button">
-					<i class="plus icon"></i>
-				</div>
-				<div class="ui right floated black icon button">
-					<i class="square pencil icon"></i>
+				<div class="ui black middle aligned two column grid">
+					<div class="ui row">
+					<div class="ui column">
+						<div class="ui large header">Tags</div>
+					</div>
+					<div class="ui right aligned column">
+						<div class="ui right black icon tag button">
+							<i class="plus icon"></i>
+						</div>
+						<div class="ui right black icon button">
+							<i class="square pencil icon"></i>
+						</div>
+					</div>
 				</div></div>
+				<div class="ui divider"></div>
+				
 				<div class="meta">
-					<a>Latest Tags</a>
-				</div>
-				<div class="description">
+					<a>Recent Articles</a>
+				</div>				<div class="description">
 					Elyse is a copywriter working in New York.
 				</div>
 			</div>
@@ -108,3 +127,7 @@
 			</div>
 		</div>
 	</div>
+
+
+<% render("views.admin.add.tag") %>
+<% render("views.admin.add.category") %>
