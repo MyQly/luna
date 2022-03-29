@@ -1,6 +1,16 @@
-<div class="ui segment">
+<div class="ui inverted segment">
   <div class="article">
-    <h1><%= article.title %></h1>
+    <h1 class="ui inverted centered aligned header"><span class="ui large text"><%= article.title %></span></h1>
+    <!-- TODO: Add detection for article's having a defined post image. Otherwise, hide the image. -->
+    <% if false then %>
+    <img id="article-image" class="ui centered image" src="https://fomantic-ui.com/images/wireframe/image.png">
+    <% end %>
+
+    <div class="ui horizontal divider">Meta</div>
+    <a class="ui black label">New</a>
+    <a class="ui label">New</a>
+    <a class="ui label">New</a>
+    <div class="ui divider"></div>
     <div>
       <%- article.content %>
     </div>

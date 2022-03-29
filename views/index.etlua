@@ -1,52 +1,52 @@
 <div class="ui four cards">
-    <div class="card">
+  <div class="card">
     <div class="ui image">
+      <div class="ui black ribbon label">LATEST</div>
       <img src="https://fomantic-ui.com/images/wireframe/image.png">
     </div>
     <div class="content">
-      Featured #1
+      <span class="ui large text">Latest Article</span>
     </div>
   </div>
   <div class="card">
     <div class="ui image">
+      <div class="ui black ribbon label">LATEST</div>
       <img src="https://fomantic-ui.com/images/wireframe/image.png">
     </div>
     <div class="content">
-      Featured #2
+      <span class="ui large text">2nd Most Recent Article</span>
     </div>
   </div>
-    <div class="card">
+  <div class="card">
     <div class="ui image">
+      <div class="ui black ribbon label">FEATURED</div>
       <img src="https://fomantic-ui.com/images/wireframe/image.png">
     </div>
     <div class="content">
-      Featured #3
+      <span class="ui large text">Most Recent Featured Article</span>
     </div>
   </div>
-    <div class="card">
+  <div class="card">
     <div class="ui image">
+      <div class="ui black ribbon label">FEATURED</div>
       <img src="https://fomantic-ui.com/images/wireframe/image.png">
     </div>
     <div class="content">
-      <span class="header">Featured #4</span>
+      <span class="ui large text">2nd Most Recent Featured Article</span>
     </div>
   </div>
-    </div>
-    <div class="ui inverted divider"></div>
-    <div class="ui segment">
-      <div class="ui middle aligned very relaxed divided list">
-        <% for i, article in pairs(articles) do %>
-        <div class="item">
-          <div class="content">
-            <a class="ui header" href="/article/<%= article.id %>">
-              <%= article.title %>
-            </a>
-            <!--<p><%- article.content %></h2>-->
-            <!--<div class="written-by">
-              By: <%= article:get_author().name %>
-            </div>-->
-          </div>
-        </div>
-        <% end %>
+</div>
+<div class="ui inverted divider"></div>
+<div class="ui inverted segment">
+  <div class="ui middle aligned very relaxed inverted divided list">
+    <% for i, article in pairs(articles) do %>
+    <div class="item">
+      <div class="content">
+        <a id="article" class="article" href="/article/<%= article.id %>">
+          <span class="ui large text"><%= article.title %></span>
+        </a>
       </div>
     </div>
+    <% end %>
+  </div>
+</div>
