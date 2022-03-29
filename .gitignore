@@ -1,3 +1,4 @@
 logs/
 nginx.conf.compiled
 assets/components
+config.lua
