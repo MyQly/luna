@@ -2,41 +2,47 @@
     <div class="ui stackable inverted  borderless container menu">
       <div class="left menu">
         <div class="ui left item">
+          <!-- TODO : Add controller to enable user to override admin logo option -->
+          <% if true then %>
+          <img class="ui mini image" src="/static/logo.png">
+          <% else %>
           <img class="ui mini image" src="/static/luna-logo.png">
+          <% end %>
         </div>
         <div class="ui left item">
-          <div class="ui icon black top left pointing dropdown button" data-tooltip="Add users to your feed" data-position="right center">
-            <i class="plus icon"></i>
-            <div class="menu">
-              <div class="item">Article</div>
-              <div class="item">Category</div>
-              <div class="item">Tag</div>
-            </div>
-          </div>
+          <a href="<%= url_for('dashboard') %>"><button class="ui right labeled icon button">Dashboard <i class="columns icon"></i></button></a>
         </div>
         <div class="ui left item">
-          <a href="<%= url_for('dashboard') %>"><button class="ui grey right labeled icon button">Dashboard <i class="columns icon"></i></button></a>
-        </div>
-        <div class="ui left item">
-          <div class="ui right labeled icon grey top middle pointing dropdown button">
+          <div class="admin-header ui right labeled icon top middle pointing dropdown button">
             Manage <i class="pen square icon"></i>
             <div class="menu">
               <a class="item" href="<%= url_for('manage_app')..'articles' %>">Articles</a>
               <a class="item" href="<%= url_for('manage_app')..'categories' %>">Categories</a>
               <a class="item" href="<%= url_for('manage_app')..'tags' %>">Tags</a>
+              <a class="item" href="<%= url_for('manage_app')..'depot' %>">Depot</a>
+              <a class="item" href="<%= url_for('manage_app')..'authors' %>">Authors</a>
             </div>
           </div>
         </div>
       </div>
       <div class="right menu">
+                <div class="ui item">
+          <div id="add" class="admin-header  ui icon top left pointing right labeled dropdown button">Add
+            <i class="plus icon"></i>
+            <div class="menu">
+              <div class="item">Article</div>
+              <div class="item">Categories</div>
+              <div class="item">Tags</div>
+            </div>
+          </div>
+        </div>
         <div class="ui item">
-          <div class="ui icon black top right pointing dropdown button">
+          <div id="settings" class="admin-header ui icon black top right pointing dropdown button">
             <i class="cog icon"></i>
             <div class="menu">
+              <!-- TODO : What's the difference in Luna between Settings & Theme? -->
               <div class="item">Settings</div>
               <div class="item">Theme</div>
-              <div class="item">Depot</div>
-              <div class="item">Users</div>
             </div>
           </div>
         </div>
@@ -48,10 +54,15 @@
     <div class="ui teal container">
         <div class="ui item">
           <div class="ui fluid icon disabled input">
-            <input class="prompt" type="text" placeholder="Search LUNA...">
+            <input class="prompt" type="text" placeholder="Search luna...">
             <i class="search icon"></i>
           </div>
           <div class="results"></div>
         </div>
     </div>
 </div>
+<script>
+  $('.admin-header.dropdown')
+    .dropdown()
+  ;
+</script>
