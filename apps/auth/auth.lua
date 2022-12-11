@@ -14,6 +14,12 @@ local capture_errors, assert_error = app.capture_errors, app.assert_error
 
 return function(app)
 
+  app:match("test", "/test", respond_to({
+	GET = function(self)
+		return md5.sumhexa("luna")
+	end
+  }))
+
   app:match("login", "/login"	, respond_to({
   		
   	GET = function(self)

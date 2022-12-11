@@ -5,9 +5,10 @@ config("development", {
   postgres = {
     host = "127.0.0.1",
     user = "luna_user",
-    password = "luna_user",
-    database = "luna_blog"
-  }
+    password = "@luna-Avenger.4",
+    database = "luna"
+  },
+  filestore = "files/"
 })
 
 config("production", {
