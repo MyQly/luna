@@ -69,5 +69,8 @@ return {
 
       "PRIMARY KEY (name)"
     })
+  end;
+  [10] = function ()
+    db.query("ALTER TABLE Authors RENAME COLUMN name TO username;")
   end
 }

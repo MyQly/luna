@@ -9,16 +9,10 @@ local respond_to = app.respond_to
 local validate = require("lapis.validate")
 
 -- Replace with Luna settings option instead of hardcoded check. I'm not sure why one would want to enable open registration for a blog though.
-local registrationEnabled = false
+local registrationEnabled = true
 local capture_errors, assert_error = app.capture_errors, app.assert_error
 
 return function(app)
-
-  app:match("test", "/test", respond_to({
-	GET = function(self)
-		return md5.sumhexa("luna")
-	end
-  }))
 
   app:match("login", "/login"	, respond_to({
   		
@@ -31,7 +25,7 @@ return function(app)
 			  	return { redirect_to = self:url_for("dashboard") }
 		  	end
   	end,
-  	
+
   	POST = function(self)
 	    local password = md5.sumhexa(self.params.password)
 	    local email = self.params.email
@@ -47,7 +41,7 @@ return function(app)
   	end
   }))
 
-  app:match("logout", "/logout", 
+  app:match("logout", "/logout",
   	respond_to({
   		GET = function(self)
 				self.session.current_author = nil
@@ -56,10 +50,13 @@ return function(app)
   	})
   )  
 
-  app:match("register", "/register", 
+  app:match("register", "/register",
   	respond_to({
 	  	before = function(self)
-	  		if not registrationEnabled then
+			--[[ Check if registration is allowed and the user is already logged in.
+				If either of these are true, redirect the request to the homepage.
+			-- ]]
+	  		if not registrationEnabled or self.session.current_author then
 	  			self:write({ redirect_to = self:url_for("home") })
 	  		end
 	  	end,
@@ -71,23 +68,23 @@ return function(app)
 	  	POST = capture_errors({
 			  on_error = function(self)
 			    return { render = "auth.register", layout = "auth.layout" }
-			  end, 
+			  end,
 			  function(self)
 			    validate.assert_valid(self.params, {
-			      { "email", exists = true, min_length = 3 },
-			      { "password", exists = true, min_length = 2 }
+					{ "username", exists = true, min_length = 5},
+			      	{ "email", exists = true, min_length = 3 },
+			      	{ "password", exists = true, min_length = 2 }
 			    })
 
-			    local user = assert_error(not Users:find({email = "self.params.email"}))
+			    local user = assert_error(Authors:find({email = "self.params.email" }) or Authors:find({name = "self.params.username"}), "Invalid username or email address.")
 
-					user = Users:create({
-		        name = self.params.email;
+				user = Authors:create({
+		        name = self.params.username;
 		        email = self.params.email;
-		        password = self.params.password;
+		        password = md5.sumhexa(self.params.password);
 		      })
 
-
-					self.session.current_author = { id = user.id, name = user.name, email = user.email }
+				self.session.current_author = { id = user.id, name = user.name, email = user.email }
 			    return { redirect_to = "/admin" }
 			  end
 			})

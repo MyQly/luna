@@ -1,18 +1,39 @@
-<div>
-  <form method="POST" action="/register">
-    <div class="form-group">
-      <% if errors then %>
-        <div class="alert alert-danger" role="alert">Invalid email or password</div>
-      <% end %>
-      <label for="email"> Email </label>
-      <input type="email" class="form-control" name="email">
+<div class="ui middle aligned center aligned grid">
+  <div class="column">
+    <h2 class="ui image header">
+      <!--img src="assets/images/logo.png" class="image"-->
+      <div class="content">
+        <span class="ui inverted header">Register Your Account</span>
+      </div>
+    </h2>
+  <form class="ui large form" method="POST" action="/register">
+    <div class="ui stacked segment">
+    <% if errors then %>
+      <div class="ui negative message"><%= errors[1] %></div>
+    <% end %>
+      <div class="field error">
+        <div class="ui left icon input">
+          <i class="user icon"></i>
+          <input type="text" name="username" placeholder="Username">
+        </div>
+      </div>
+      <div class="field">
+        <div class="ui left icon input">
+          <i class="mail icon"></i>
+          <input type="email" name="email" placeholder="Email Address">
+        </div>
+      </div>
+      <div class="field">
+        <div class="ui left icon input">
+          <i class="lock icon"></i>
+          <input type="password" name="password" placeholder="Password">
+        </div>
+      </div>
+      <div class="ui fluid large black submit button">Login</div>
     </div>
-    <div class="form-group">
-      <label for="password"> Password </label>
-      <input type="password" class="form-control" name="password">
-    </div>
-    <div class="form-group">
-      <button class="btn btn-primary btn-block">Register</button>
-    </div>
+
+    <div class="ui error message"></div>
+
   </form>
+</div>
 </div>
